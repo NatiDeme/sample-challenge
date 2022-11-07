@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Nav from "./components/nav";
 
 function App() {
+  const n = 55;
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Nav />
+      <div className="App w-screen flex justify-center items-center h-screen">
+        <div className="flex flex-wrap w-1/4 gap-0.5">
+          {[...Array(n)].map((e, i) => {
+            return (
+              <div className="h-10 w-10 bg-black rounded-2xl" key={i}></div>
+            );
+          })}
+        </div>
+      </div>
+    </>
   );
 }
 
