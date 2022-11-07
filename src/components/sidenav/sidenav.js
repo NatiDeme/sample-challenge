@@ -1,7 +1,9 @@
+import Menu from "./menu";
+
 function Nav() {
   return (
     <div>
-      <h1>Welcome</h1>
+      <Menu />
     </div>
   );
 }
