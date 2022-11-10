@@ -1,60 +1,72 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Tour Booking Front-end
+# Tourify
 
-- This project is a website that serves as an information hub about heroes in the game Dota 2.
+> **This is an app in wich you can reserve a tour, create a tour, delete a tour and show all your reserved tours. This app was created separating the Fron-End and the Back-End in two repositories. This is the repository of the front-end API.**
+
+<img src="https://i.imgur.com/Gus9sKi.png" style="width: 70%;margin-top: 5rem;" alt="Project Presentation" />
+
+
+
+## LINK TO THE BACKEND REPO
+[TOURIFY-BACKEND](https://github.com/NatiDeme/tour-booking-backend)
+
+## Live Demo
+[Link Live Demo](https://book-tours.netlify.app/)
+
+## Kanban Board
+
+ 1- [Link to Kanban Board.](https://github.com/NatiDeme/tour-booking-backend/projects/1)
+ 
+ <img src="https://user-images.githubusercontent.com/94223367/199873332-fd843701-2b60-4d6b-ab91-4ae8d036e17d.png" style="width: 70%;margin-top: 5rem;" alt="Kanban Board" />
 
 ## Built With
 
-- React
-- Tailwind CSS
-
-## Live Demo
-
-[Live Demo Link](https://62e145834c84cd265ced3323--heroesofdota2.netlify.app)
+- HTML
+- CSS
+- JavaScript
+- Ract
+- Redux
 
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps.
 
-### Prerequisites
-
-- Node installed on you machine
 
 ### Setup
 
-- To get started you must first clone the project from the repository.
+- Clone the repository using the next link: https://github.com/ABDULALI3468/bookMe-frontend.git
+- With your code editor open the folder where you cloned the project.
+- In your code editor terminal run `npm install` to install all the dependencies needed.
+- In your code editor terminal run `npm start` to start the local server.
 
-### Install
 
-- Then you should install all necessary packages using `npm install` command.
-
-### Usage
-
-- In order to start the project run `npm start` on your command line to start the react server.
+# Number of Team Mates:- 
+This project was build with 2 teams Backend and Front End. Our team constitutes of 4 participants. The following are the list of Authors differentiated as worked in teams and their roles.
 
 ## Authors
 
-👤 **Author1**
+### FRONT END TEAM: 
 
-- GitHub: [@NatiDeme](https://github.com/NatiDeme)
-- Twitter: [@NatiDemelash](https://twitter.com/NatiDemelash)
-- LinkedIn: [Natnael Demelash](https://www.linkedin.com/in/natnael-demelash/)
+👤 **Natnael Demelash (TEAM LEADER) **
+
+- GitHub: [@githubhandle](https://github.com/NatiDeme)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/natnael-demelash/)
+
 
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/ABDULALI3468/bookMe-frontend.git/issues).
+
+## Acknowledgments
+
+- Original design idea by [Murat Korkmaz on Behance](https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign).
 
 ## Show your support
 
 Give a ⭐️ if you like this project!
-
-## Acknowledgement
-
-- Original design idea by [Nelson Sakwa on Behance](https://www.behance.net/sakwadesignstudio).
-- Thank you for Microverse and my programming partners!
 
 ## 📝 License
 
