@@ -1,10 +1,18 @@
+import React from "react";
+import { BrowserRouter as Router, Link } from "react-router-dom";
 function Menu() {
   return (
     <>
-      <div>
-        <p>Tours</p>
-        <p>Tours</p>
-      </div>
+      <Router>
+        <ul>
+          <li>
+            <Link to="/"> Tour </Link>
+          </li>
+          <li>
+            <Link to="/reserve"> Reserve </Link>
+          </li>
+        </ul>
+      </Router>
     </>
   );
 }
