@@ -1,5 +1,9 @@
 function Tour() {
-  return <div>it's tour page</div>;
+  return (
+    <div>
+      <p>its tour page</p>
+    </div>
+  );
 }
 
 export default Tour;

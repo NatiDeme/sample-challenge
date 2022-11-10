@@ -1,9 +1,8 @@
-import "./App.css";
-import Nav from "./components/sidenav/sidenav";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import React from "react";
-import Tour from "./components/pages/tour";
-import Reservation from "./components/pages/reservation";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Nav from './components/sidenav/sidenav';
+import Tour from './components/pages/tour';
+import Reservation from './components/pages/reservation';
 
 function App() {
   return (
