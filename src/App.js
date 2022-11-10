@@ -3,6 +3,8 @@ import Nav from './components/sidenav/sidenav';
 import Tour from './components/pages/tour';
 import Reservation from './components/pages/reservation';
 import Reserve from './components/pages/reserve';
+import CreateTour from './components/pages/new_tour';
+import DeleteTour from './components/pages/delete_tour';
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
           <Route path="/" element={<Tour />} />
           <Route path="/my-reservations" element={<Reservation />} />
           <Route path="/reserve" element={<Reserve />} />
+          <Route path="/create-tour" element={<CreateTour />} />
+          <Route path="/delete-tour" element={<DeleteTour />} />
         </Routes>
       </div>
     </Router>

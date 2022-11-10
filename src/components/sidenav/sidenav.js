@@ -13,6 +13,12 @@ function Nav() {
         <li>
           <Link to="/reserve"> Reserve </Link>
         </li>
+        <li>
+          <Link to="/create-tour"> Create Tour </Link>
+        </li>
+        <li>
+          <Link to="/delete-tour"> Delete Tour </Link>
+        </li>
       </ul>
     </>
   );
