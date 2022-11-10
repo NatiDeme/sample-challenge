@@ -3,21 +3,21 @@ import { Link } from 'react-router-dom';
 function Nav() {
   return (
     <>
-      <ul>
-        <li>
-          <Link to="/"> Tour </Link>
+      <ul className="h-screen px-5 flex flex-col gap-3 pt-10 text-xl font-bold tracking-wide">
+        <li className="hover:bg-slate-700 hover:text-white active:bg-slate-700 p-2">
+          <Link to="/"> TOUR </Link>
         </li>
-        <li>
-          <Link to="/my-reservations"> My Reservation </Link>
+        <li className="hover:bg-slate-700 hover:text-white active:bg-slate-700 p-2">
+          <Link to="/my-reservations"> MY RESERVATIONS </Link>
         </li>
-        <li>
-          <Link to="/reserve"> Reserve </Link>
+        <li className="hover:bg-slate-700 hover:text-white active:bg-slate-700 p-2">
+          <Link to="/reserve"> RESERVE TOUR </Link>
         </li>
-        <li>
-          <Link to="/create-tour"> Create Tour </Link>
+        <li className="hover:bg-slate-700 hover:text-white active:bg-slate-700 p-2">
+          <Link to="/create-tour"> CREATE TOUR </Link>
         </li>
-        <li>
-          <Link to="/delete-tour"> Delete Tour </Link>
+        <li className="hover:bg-slate-700 hover:text-white active:bg-slate-700 p-2">
+          <Link to="/delete-tour"> DELETE TOUR </Link>
         </li>
       </ul>
     </>

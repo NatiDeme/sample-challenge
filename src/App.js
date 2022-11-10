@@ -10,7 +10,7 @@ function App() {
   return (
     <Router>
       <div className="flex">
-        <div className="w-52 border-x-2 border-black h-screen">
+        <div className="border-x-2 h-screen w-64 drop-shadow-sm">
           <Nav />
         </div>
         <Routes>
