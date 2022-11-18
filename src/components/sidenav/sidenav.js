@@ -21,7 +21,7 @@ function Nav() {
           <Link to="/delete-tour"> DELETE TOUR </Link>
         </li>
       </ul>
-      <ul className="h-screen px-3 flex flex-col gap-3 pt-10 text-xl font-bold tracking-wide">
+      <ul className="h-screen px-3 flex flex-col gap-3 pt-10 text-xl font-bold tracking-wide lg:hidden">
         <li className="hover:bg-slate-700 hover:text-white active:bg-slate-700 p-2">
           <Link to="/"> T</Link>
         </li>
