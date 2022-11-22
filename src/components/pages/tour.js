@@ -1,6 +1,6 @@
 /* eslint-disable consistent-return */
 /* eslint-disable react/prop-types */
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const tours = [
   {
@@ -26,6 +26,18 @@ const tours = [
     img: 'https://images.pexels.com/photos/158398/niagara-falls-waterfall-horseshoe-158398.jpeg?auto=compress&cs=tinysrgb&w=1600',
     title: 'Visit Uganda',
     desc: 'Whou would hate to visit Lake Victoria'
+  },
+  {
+    id: 4,
+    img: 'https://images.pexels.com/photos/158398/niagara-falls-waterfall-horseshoe-158398.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    title: 'Visit Egypt',
+    desc: 'Whou would hate to visit Lake Victoria'
+  },
+  {
+    id: 5,
+    img: 'https://images.pexels.com/photos/158398/niagara-falls-waterfall-horseshoe-158398.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    title: 'Visit Ertirea',
+    desc: 'Whou would hate to visit Lake Victoria'
   }
 ];
 function Tour() {
@@ -33,12 +45,23 @@ function Tour() {
   const offSet = 3;
   const len = tours.length;
   const prev = () => {
-    setCurrentIndex(currentIndex === 0 ? len - 1 - offSet : currentIndex - 1);
+    setCurrentIndex(() => {
+      if (currentIndex === 0) {
+        return len - 1 - offSet;
+      }
+      return currentIndex - 1;
+    });
   };
   const next = () => {
     setCurrentIndex(currentIndex === len - 1 - offSet ? 0 : currentIndex + 1);
   };
-  console.log(currentIndex);
+  useEffect(() => {
+    console.log(currentIndex);
+  }, [currentIndex]);
+
+  if (!Array.isArray(tours) || tours.length <= 0) {
+    return null;
+  }
   return (
     <div className="w-full">
       <div className=" flex flex-col items-center pt-5">
@@ -109,14 +132,14 @@ function List({ data = [] }) {
   if (!data.length) return;
   return (
     <div className="flex gap-6 justify-center">
-      {data.map((tour) => (
-        <div className="w-80" key={tour.id}>
+      {data.map((d) => (
+        <div className="w-80" key={d.id}>
           <div className="flex justify-center">
-            <img className="w-72 h-72 rounded-full" src={tour.img} alt="asda" />
+            <img className="w-72 h-72 rounded-full" src={d.img} alt="asda" />
           </div>
           <div className="mt-3 text-center">
-            <p className="text-xl font-bold">{tour.title}</p>
-            <p>{tour.desc}</p>
+            <p className="text-xl font-bold">{d.title}</p>
+            <p>{d.desc}</p>
           </div>
         </div>
       ))}
