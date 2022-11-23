@@ -17,32 +17,32 @@ const tours = [
   },
   {
     id: 2,
-    img: 'https://images.pexels.com/photos/158398/niagara-falls-waterfall-horseshoe-158398.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    img: 'https://images.pexels.com/photos/2901215/pexels-photo-2901215.jpeg?auto=compress&cs=tinysrgb&w=1600',
     title: 'Visit Rwanda',
     desc: 'Amazing place in the horn of africa'
   },
   {
     id: 3,
-    img: 'https://images.pexels.com/photos/158398/niagara-falls-waterfall-horseshoe-158398.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    img: 'https://images.pexels.com/photos/2387873/pexels-photo-2387873.jpeg?auto=compress&cs=tinysrgb&w=1600',
     title: 'Visit Uganda',
     desc: 'Whou would hate to visit Lake Victoria'
   },
   {
     id: 4,
-    img: 'https://images.pexels.com/photos/158398/niagara-falls-waterfall-horseshoe-158398.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    img: 'https://images.pexels.com/photos/2356045/pexels-photo-2356045.jpeg?auto=compress&cs=tinysrgb&w=1600',
     title: 'Visit Egypt',
     desc: 'Whou would hate to visit Lake Victoria'
   },
   {
     id: 5,
-    img: 'https://images.pexels.com/photos/158398/niagara-falls-waterfall-horseshoe-158398.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    img: 'https://images.pexels.com/photos/3155666/pexels-photo-3155666.jpeg?auto=compress&cs=tinysrgb&w=1600',
     title: 'Visit Ertirea',
     desc: 'Whou would hate to visit Lake Victoria'
   }
 ];
 function Tour() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const offSet = 3;
+  const offSet = 2;
   const len = tours.length;
   const prev = () => {
     setCurrentIndex(() => {
@@ -131,11 +131,11 @@ function Tour() {
 function List({ data = [] }) {
   if (!data.length) return;
   return (
-    <div className="flex gap-6 justify-center">
+    <div className="flex gap-20 justify-center ">
       {data.map((d) => (
-        <div className="w-80" key={d.id}>
-          <div className="flex justify-center">
-            <img className="w-72 h-72 rounded-full" src={d.img} alt="asda" />
+        <div className="w-80 duration-700 ease-in-out" key={d.id}>
+          <div className="flex justify-center ">
+            <img className="w-96 h-80 rounded-full" src={d.img} alt="asda" />
           </div>
           <div className="mt-3 text-center">
             <p className="text-xl font-bold">{d.title}</p>
