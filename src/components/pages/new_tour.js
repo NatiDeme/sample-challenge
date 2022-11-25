@@ -44,6 +44,10 @@ export default function CreateTour() {
             id="date"
             placeholder="Description"
           />
+          <input
+            type="submit"
+            className="bg-slate-700 text-white w-20 rounded-md p-3 hover:border-2 hover:border-slate-700 hover:bg-white hover:text-slate-700"
+          />
         </form>
       </div>
     </div>
