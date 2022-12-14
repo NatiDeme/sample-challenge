@@ -1,4 +1,12 @@
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { CalendarPicker } from '@mui/x-date-pickers/CalendarPicker';
+import * as React from 'react';
+import dayjs, { Dayjs } from 'dayjs';
+
 export default function Reserve() {
+  // eslint-disable-next-line prettier/prettier, no-bitwise, yoda
+  const [date, setDate] = React.useState < Dayjs | null > dayjs('2022-1-12');
   return (
     <div className="w-full">
       <div className="text-center mt-5">
@@ -6,11 +14,14 @@ export default function Reserve() {
       </div>
       <div className="flex justify-center mt-10">
         <form className="flex flex-col gap-5">
-          <input
+          {/* <input
             type="date"
             className="border-b-2 border-gray-200 focus:border-slate-500  p-1 focus:outline-0"
             id="date"
-          />
+          /> */}
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <CalendarPicker date={date} onChange={(newDate) => setDate(newDate)} />
+          </LocalizationProvider>
           <input
             type="text"
             className="border-b-2 border-gray-200 focus:border-slate-500  p-1 focus:outline-0"

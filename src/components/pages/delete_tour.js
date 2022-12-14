@@ -30,7 +30,7 @@ export default function DeleteTour() {
           </div>
           <div className="mt-3">
             <button type="button" className="bg-red-500 text-white p-3 rounded-xl">
-              Cancel Reservation
+              Delete Tour
             </button>
           </div>
         </div>
