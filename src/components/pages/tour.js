@@ -1,6 +1,7 @@
 /* eslint-disable consistent-return */
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 const tours = [
   {
@@ -132,17 +133,21 @@ function List({ data = [] }) {
   if (!data.length) return;
   return (
     <div className="flex gap-20 justify-center ">
-      {data.map((d) => (
-        <div className="w-80 duration-700 ease-in-out" key={d.id}>
-          <div className="flex justify-center ">
-            <img className="w-96 h-80 rounded-full" src={d.img} alt="asda" />
-          </div>
-          <div className="mt-3 text-center">
-            <p className="text-xl font-bold">{d.title}</p>
-            <p>{d.desc}</p>
-          </div>
-        </div>
-      ))}
+      <swiper>
+        {data.map((d) => (
+          <SwiperSlide key={d.id}>
+            <div className="w-80 duration-700 ease-in-out">
+              <div className="flex justify-center ">
+                <img className="w-96 h-80 rounded-full" src={d.img} alt="asda" />
+              </div>
+              <div className="mt-3 text-center">
+                <p className="text-xl font-bold">{d.title}</p>
+                <p>{d.desc}</p>
+              </div>
+            </div>
+          </SwiperSlide>
+        ))}
+      </swiper>
     </div>
   );
 }
