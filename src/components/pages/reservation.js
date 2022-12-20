@@ -1,14 +1,17 @@
 function Reservation() {
   return (
     <div className="w-full">
-      <div className=" flex flex-col items-center pt-5">
+      {/* <div className=" flex flex-col items-center pt-5 pb-10 ">
         <p className="text-3xl font-black">Your Tours</p>
+      </div> */}
+      <div className="text-center bg-gray-50 text-gray-800 py-20 px-4">
+        <h1 className="text-5xl font-bold mt-0 mb-6 underline underline-offset-2">Your Tours</h1>
       </div>
       <div className=" flex-col items-center pt-5 hidden">
         <p className="text-3xl font-black">You have not created any reservations yet</p>
         <p>Please select a Tour</p>
       </div>
-      <div className="flex gap-8 border-2 border-slate-100 w-[35rem] rounded-xl p-3">
+      <div className="lg:flex gap-8 p-6 rounded-lg shadow-lg bg-white my-5 mx-5">
         <div>
           <img
             src="https://images.pexels.com/photos/158398/niagara-falls-waterfall-horseshoe-158398.jpeg?auto=compress&cs=tinysrgb&w=1600"
