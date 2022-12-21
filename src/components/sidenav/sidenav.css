@@ -1,39 +1,37 @@
 @media only screen and (max-width: 768px) {
-    .navbutton {
-        position: fixed;
-        left: 30px;
-        top: 25px;
-        z-index: 10;
-        cursor: pointer;
-        display: block;
-    }
+  .navbutton {
+    position: fixed;
+    left: 30px;
+    top: 25px;
+    z-index: 10;
+    cursor: pointer;
+    display: block;
+  }
 
-    .menuNav {
-        background: white;
-        position: fixed;
-        display: none;
-        border-radius: 8px;
-    }
+  .menuNav {
+    background: white;
+    position: fixed;
+    display: none;
+    border-radius: 8px;
+  }
 
-    .menuNav.showMenu {
-        width: 15rem;
-        display: block;
-    }
+  .menuNav.showMenu {
+    width: 15rem;
+    display: block;
+  }
 
-    a {
-        display: block;
-        text-decoration: none;
-        color: #3fffd2;
-        text-transform: uppercase;
-        font-weight: bold;
-    }
+  a {
+    display: block;
+    text-decoration: none;
+    color: #3fffd2;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
 }
 
 @media only screen and (min-width: 769px) {
-
-    .navbutton,
-    .menuNav {
-        display: none;
-    }
-
+  .navbutton,
+  .menuNav {
+    display: none;
+  }
 }
