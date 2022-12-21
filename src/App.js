@@ -9,7 +9,7 @@ import DeleteTour from './components/pages/delete_tour';
 function App() {
   return (
     <Router>
-      <div className="flex">
+      <div className="flex h-screen">
         <div className=" border-x-2 drop-shadow-sm z-40 bg-white md:w-96">
           <Nav />
         </div>
