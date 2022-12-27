@@ -1,6 +1,3 @@
-/* eslint-disable consistent-return */
-/* eslint-disable react/prop-types */
-// import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import 'swiper/css';
@@ -47,24 +44,33 @@ const tours = [
 ];
 function Tour() {
   return (
-    <div className="">
+    <div className="w-full">
       <div className="text-center mt-5">
         <p className="text-3xl font-black"> Reserve your Tour</p>
       </div>
       <div className="pt-32">
         <Swiper
-          className="w-[95rem] h-[35rem]"
+          className="h-[35rem]"
           modules={[Navigation, Pagination, Scrollbar, A11y]}
-          spaceBetween={5}
+          spaceBetween={25}
           slidesPerView={3}
           grabCursor="true"
           navigation
-          pagination={{ clickable: true }}>
+          pagination={{ clickable: true }}
+          scrollbar={{ draggable: true }}
+          breakpoints={{
+            0: {
+              slidesPerView: 1
+            },
+            850: {
+              slidesPerView: 2
+            }
+          }}>
           {tours.map((d) => (
             <SwiperSlide key={d.id}>
-              <div className="ml-24 w-80 duration-700 ease-in-out">
+              <div>
                 <div className="flex justify-center ">
-                  <img className="w-96 h-80 rounded-full" src={d.img} alt="asda" />
+                  <img className="w-80 h-80 rounded-full" src={d.img} alt="asda" />
                 </div>
                 <div className="mt-3 text-center">
                   <p className="text-xl font-bold">{d.title}</p>

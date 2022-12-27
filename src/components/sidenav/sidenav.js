@@ -43,6 +43,15 @@ function Nav() {
             DELETE TOUR{' '}
           </li>
         </NavLink>
+        <li>
+          <div className="flex justify-center mt-5">
+            <button
+              type="button"
+              className="bg-slate-700 text-white p-2 rounded-lg hover:bg-slate-500 px-10">
+              Sign In
+            </button>
+          </div>
+        </li>
       </ul>
       <button type="button" onClick={handleToggle} className="navbutton">
         {navbarOpen ? (
@@ -101,13 +110,6 @@ function Nav() {
           </li>
         </NavLink>
       </ul>
-      <div className="flex justify-center mt-5">
-        <button
-          type="button"
-          className="bg-slate-700 text-white p-2 rounded-lg hover:bg-slate-500 px-10">
-          Sign In
-        </button>
-      </div>
     </>
   );
 }
