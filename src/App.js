@@ -9,17 +9,19 @@ import DeleteTour from './components/pages/delete_tour';
 function App() {
   return (
     <Router>
-      <div className="flex">
-        <div className="border-x-2 h-screen md:w-72 w-16 drop-shadow-sm">
+      <div className="flex h-screen">
+        <div className=" border-x-2 drop-shadow-sm z-40 bg-white md:w-96">
           <Nav />
         </div>
-        <Routes>
-          <Route path="/" element={<Tour />} />
-          <Route path="/my-reservations" element={<Reservation />} />
-          <Route path="/reserve" element={<Reserve />} />
-          <Route path="/create-tour" element={<CreateTour />} />
-          <Route path="/delete-tour" element={<DeleteTour />} />
-        </Routes>
+        <div className="bg-[#f9fafb] w-full">
+          <Routes>
+            <Route path="/" element={<Tour />} />
+            <Route path="/my-reservations" element={<Reservation />} />
+            <Route path="/reserve" element={<Reserve />} />
+            <Route path="/create-tour" element={<CreateTour />} />
+            <Route path="/delete-tour" element={<DeleteTour />} />
+          </Routes>
+        </div>
       </div>
     </Router>
   );

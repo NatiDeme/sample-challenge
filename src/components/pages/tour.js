@@ -47,13 +47,13 @@ const tours = [
 ];
 function Tour() {
   return (
-    <div className="w-full">
+    <div className="">
       <div className="text-center mt-5">
         <p className="text-3xl font-black"> Reserve your Tour</p>
       </div>
       <div className="pt-32">
         <Swiper
-          className="w-[95rem] h-[40rem]"
+          className="w-[95rem] h-[35rem]"
           modules={[Navigation, Pagination, Scrollbar, A11y]}
           spaceBetween={5}
           slidesPerView={3}
@@ -62,7 +62,7 @@ function Tour() {
           pagination={{ clickable: true }}>
           {tours.map((d) => (
             <SwiperSlide key={d.id}>
-              <div className="w-80 duration-700 ease-in-out">
+              <div className="ml-24 w-80 duration-700 ease-in-out">
                 <div className="flex justify-center ">
                   <img className="w-96 h-80 rounded-full" src={d.img} alt="asda" />
                 </div>
