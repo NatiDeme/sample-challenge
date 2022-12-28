@@ -5,10 +5,16 @@ import Reservation from './components/pages/reservation';
 import Reserve from './components/pages/reserve';
 import CreateTour from './components/pages/new_tour';
 import DeleteTour from './components/pages/delete_tour';
+import Login from './components/pages/login';
+import Signup from './components/pages/signup';
 
 function App() {
   return (
     <Router>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+      </Routes>
       <div className="flex h-screen">
         <div className=" border-x-2 drop-shadow-sm z-40 bg-white md:w-96">
           <Nav />

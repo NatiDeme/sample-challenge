@@ -1,8 +1,12 @@
+import { Link } from 'react-router-dom';
+
 export default function Signup() {
   return (
     <div className="flex justify-center  lg:justify-between">
       <div>
-        <p className="text-black text-lg font-black mt-10 ml-5">LOGO</p>
+        <Link to="/">
+          <p className="text-black text-lg font-black mt-10 ml-5">LOGO</p>
+        </Link>
         <div>
           <div className="flex flex-col gap-10 mt-20 lg:ml-20">
             <h2 className="text-2xl font-black">Sign in to your account</h2>
