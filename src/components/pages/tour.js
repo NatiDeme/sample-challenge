@@ -50,9 +50,9 @@ function Tour() {
       </div>
       <div className="pt-32">
         <Swiper
-          className="h-[35rem]"
+          className="w-[95rem] h-[35rem]"
           modules={[Navigation, Pagination, Scrollbar, A11y]}
-          spaceBetween={25}
+          spaceBetween={5}
           slidesPerView={3}
           grabCursor="true"
           navigation
