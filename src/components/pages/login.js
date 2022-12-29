@@ -1,6 +1,25 @@
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { authUser } from '../../redux/user/userAuth';
 
 export default function Login() {
+  const dispatch = useDispatch();
+  // const navigate = useNavigate();
+  const [value, setValue] = useState({
+    email: '',
+    password: ''
+  });
+  const updateValue = (e) => {
+    setValue({
+      ...value,
+      [e.target.id]: e.target.value
+    });
+  };
+  const submitHandler = () => {
+    dispatch(authUser(value));
+    // navigate('/');
+  };
   return (
     <div className="flex justify-center  lg:justify-between">
       <div>
@@ -11,19 +30,28 @@ export default function Login() {
             <form className="flex flex-col gap-5">
               <input
                 type="email"
+                id="email"
                 placeholder="Email"
+                onChange={updateValue}
                 className="border-b-2 placeholder:text-black placeholder:p-1 border-gray-400 w-64 focus:outline-0"
               />
               <input
                 type="text"
                 placeholder="Password"
+                id="password"
+                onChange={updateValue}
                 className="border-b-2 placeholder:text-black placeholder:p-1 border-gray-400 w-64 focus:outline-0"
               />
+              {/* <input
+                type="submit"
+                className="bg-black text-white w-64 p-2 rounded-xl hover:bg-white hover:border-2 hover:text-black hover:border-black"
+                value="Sign in"
+              /> */}
               <button
                 type="button"
+                onClick={submitHandler}
                 className="bg-black text-white w-64 p-2 rounded-xl hover:bg-white hover:border-2 hover:text-black hover:border-black">
-                {' '}
-                Sign in
+                signin
               </button>
             </form>
             <div className="flex gap-2 lg:hidden">
