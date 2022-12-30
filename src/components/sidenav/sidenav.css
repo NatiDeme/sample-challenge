@@ -16,8 +16,9 @@
   }
 
   .menuNav.showMenu {
-    width: 15rem;
+    width: 18rem;
     display: block;
+    height: 100%;
   }
 
   a {
@@ -30,8 +31,7 @@
 }
 
 @media only screen and (min-width: 769px) {
-  .navbutton,
-  .menuNav {
+  .navbutton {
     display: none;
   }
 }

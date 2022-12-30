@@ -11,10 +11,6 @@ import Signup from './components/pages/signup';
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-      </Routes>
       <div className="flex h-screen">
         <div className=" border-x-2 drop-shadow-sm z-40 bg-white md:w-96">
           <Nav />
@@ -26,6 +22,8 @@ function App() {
             <Route path="/reserve" element={<Reserve />} />
             <Route path="/create-tour" element={<CreateTour />} />
             <Route path="/delete-tour" element={<DeleteTour />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
           </Routes>
         </div>
       </div>
