@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { authUser } from '../../redux/user/userAuth';
 
 export default function Login() {
+  const user = useSelector((store) => store.user);
   const dispatch = useDispatch();
   // const navigate = useNavigate();
   const [value, setValue] = useState({
@@ -18,12 +19,19 @@ export default function Login() {
   };
   const submitHandler = () => {
     dispatch(authUser(value));
-    // navigate('/');
+    console.log(user.size);
+    if (user.length > 0) {
+      console.log(user);
+      console.log(user.token);
+      // navigate('/');
+    }
   };
   return (
     <div className="flex justify-center  lg:justify-between">
       <div>
-        <p className="text-black text-lg font-black mt-10 ml-5">LOGO</p>
+        <Link to="/">
+          <p className="text-black text-lg font-black mt-10 ml-5">LOGO</p>
+        </Link>
         <div>
           <div className="flex flex-col gap-10 mt-20 lg:ml-20">
             <h2 className="text-2xl font-black">Sign in to your account</h2>
