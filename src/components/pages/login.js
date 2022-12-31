@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export default function Login() {
   return (
     <div className="flex justify-center  lg:justify-between">
@@ -33,11 +35,13 @@ export default function Login() {
       </div>
       <div className="login w-[45rem] rounded-3xl h-[56rem] my-5 mr-14 hidden lg:block">
         <div className="flex justify-end mr-5">
-          <button
-            type="button"
-            className="bg-white text-black p-3 rounded-xl mt-5 hover:bg-black hover:text-white hover:border-2 hover:border-white">
-            Sign Up
-          </button>
+          <Link to="/signup">
+            <button
+              type="button"
+              className="bg-white text-black p-3 rounded-xl mt-5 hover:bg-black hover:text-white hover:border-2 hover:border-white">
+              Sign Up
+            </button>
+          </Link>
         </div>
       </div>
     </div>
