@@ -1,12 +1,12 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { authUser } from '../../redux/user/userAuth';
 
 export default function Login() {
   const user = useSelector((store) => store.user);
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const [value, setValue] = useState({
     email: '',
     password: ''
@@ -19,13 +19,13 @@ export default function Login() {
   };
   const submitHandler = () => {
     dispatch(authUser(value));
-    console.log(user.size);
-    if (user.length > 0) {
-      console.log(user);
-      console.log(user.token);
-      // navigate('/');
-    }
   };
+  useEffect(() => {
+    const exist = Object.keys(user).length;
+    if (exist > 0) {
+      navigate('/');
+    }
+  }, [user]);
   return (
     <div className="flex justify-center  lg:justify-between">
       <div>
