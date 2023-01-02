@@ -1,8 +1,11 @@
 import { NavLink } from 'react-router-dom';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './sidenav.css';
+import { useSelector } from 'react-redux';
 
 function Nav() {
+  const user = useSelector((store) => store.user);
+  let isLogged;
   const [navbarOpen, setNavbarOpen] = useState(false);
   const handleToggle = () => {
     setNavbarOpen(!navbarOpen);
@@ -18,6 +21,9 @@ function Nav() {
     { link: '/create-tour', label: 'Create tour' },
     { link: '/delete-tour', label: 'Delete tour' }
   ];
+  useEffect(() => {
+    isLogged = Object.keys(user).length > 0;
+  });
   return (
     <>
       <button type="button" onClick={handleToggle} className="navbutton">
@@ -65,11 +71,19 @@ function Nav() {
         <NavLink to="/login" onClick={close}>
           <li>
             <div className="flex justify-center mt-5">
-              <button
-                type="button"
-                className="bg-slate-700 text-white p-2 rounded-lg hover:bg-slate-500 px-10">
-                Sign In
-              </button>
+              {isLogged ? (
+                <button
+                  type="button"
+                  className="bg-slate-700 text-white p-2 rounded-lg hover:bg-slate-500 px-10">
+                  Sign In
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  className="bg-slate-700 text-white p-2 rounded-lg hover:bg-slate-500 px-10">
+                  Sign Out
+                </button>
+              )}
             </div>
           </li>
         </NavLink>

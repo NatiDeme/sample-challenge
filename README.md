@@ -7,7 +7,6 @@
 <img src="https://i.imgur.com/Gus9sKi.png" style="width: 70%;margin-top: 5rem;" alt="Project Presentation" />
 
 
-
 ## LINK TO THE BACKEND REPO
 [TOURIFY-BACKEND](https://github.com/NatiDeme/tour-booking-backend)
 
@@ -41,12 +40,8 @@ To get a local copy up and running follow these simple example steps.
 - In your code editor terminal run `npm start` to start the local server.
 
 
-# Number of Team Mates:- 
-This project was build with 2 teams Backend and Front End. Our team constitutes of 4 participants. The following are the list of Authors differentiated as worked in teams and their roles.
 
-## Authors
-
-### FRONT END TEAM: 
+## Author
 
 👤 **Natnael Demelash (TEAM LEADER) **
 
