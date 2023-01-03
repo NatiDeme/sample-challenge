@@ -7,6 +7,7 @@ import CreateTour from './components/pages/new_tour';
 import DeleteTour from './components/pages/delete_tour';
 import Login from './components/pages/login';
 import Signup from './components/pages/signup';
+import TourDetail from './components/pages/tour_detail';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="/reserve" element={<Reserve />} />
             <Route path="/create-tour" element={<CreateTour />} />
             <Route path="/delete-tour" element={<DeleteTour />} />
+            <Route path="/detail" element={<TourDetail />} />
           </Routes>
         </div>
       </div>

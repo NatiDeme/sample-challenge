@@ -5,6 +5,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { getTrous } from '../../redux/tour/tour';
 
 function Tour() {
@@ -38,15 +39,16 @@ function Tour() {
           }}>
           {allTours.map((d) => (
             <SwiperSlide key={d.id}>
-              <div>
+              <Link to="/detail" state={d.id}>
                 <div className="flex justify-center ">
                   <img className="w-80 h-80 rounded-full" src={d.image} alt="asda" />
                 </div>
                 <div className="mt-3 text-center">
-                  <p className="text-xl font-bold">{d.cuty}</p>
+                  <p className="text-xl font-bold">{d.city}</p>
+                  <p className="px-40">{d.description.substring(0, 100)}</p>
                   <p>{d.name}</p>
                 </div>
-              </div>
+              </Link>
             </SwiperSlide>
           ))}
         </Swiper>
