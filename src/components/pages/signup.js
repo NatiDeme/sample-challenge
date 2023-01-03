@@ -1,6 +1,33 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { signUpUser } from '../../redux/user/userAuth';
 
 export default function Signup() {
+  const user = useSelector((store) => store.user);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [value, setValue] = useState({
+    email: '',
+    name: '',
+    username: '',
+    password: ''
+  });
+  const updateValue = (e) => {
+    setValue({
+      ...value,
+      [e.target.id]: e.target.value
+    });
+  };
+  const submitHandler = () => {
+    dispatch(signUpUser(value));
+  };
+  useEffect(() => {
+    const exist = Object.keys(user).length;
+    if (exist > 0) {
+      navigate('/');
+    }
+  }, [user]);
   return (
     <div className="flex justify-center  lg:justify-between">
       <div>
@@ -14,25 +41,34 @@ export default function Signup() {
               <input
                 type="email"
                 placeholder="Email"
+                id="email"
+                onChange={updateValue}
                 className="border-b-2 placeholder:text-black placeholder:p-1 border-gray-400 w-64 focus:outline-0"
               />
               <input
                 type="text"
                 placeholder="name"
+                id="name"
+                onChange={updateValue}
                 className="border-b-2 placeholder:text-black placeholder:p-1 border-gray-400 w-64 focus:outline-0"
               />
               <input
                 type="text"
                 placeholder="username"
+                id="username"
+                onChange={updateValue}
                 className="border-b-2 placeholder:text-black placeholder:p-1 border-gray-400 w-64 focus:outline-0"
               />
               <input
                 type="text"
                 placeholder="Password"
+                id="password"
+                onChange={updateValue}
                 className="border-b-2 placeholder:text-black placeholder:p-1 border-gray-400 w-64 focus:outline-0"
               />
               <button
                 type="button"
+                onClick={submitHandler}
                 className="bg-black text-white w-64 p-2 rounded-xl hover:bg-white hover:border-2 hover:text-black hover:border-black">
                 {' '}
                 Sign Up

@@ -18,21 +18,24 @@ function TourDetail() {
   return (
     <div>
       {tour.map((m) => (
-        <div key={m} className="lg:flex lg:ap-80">
-          <div>
-            <img src={m.image} alt="egypt" className="lg:w-[40rem] lg:h-screen object-cover" />
-          </div>
-          <div className="">
-            <p className="font-black text-xl">{m.name}</p>
-            <p className="w-80">{m.description}</p>
-            <ul className="pl-20">
-              <li>city:{m.city}</li>
-              <li>Duration(weeks):</li>
-              <li>Cost:</li>
-            </ul>
-            <button className="text-white bg-slate-700 p-2 rounded-md" type="button" onClick={back}>
-              Reserve
-            </button>
+        <div key={m} className="flex justify-center mt-10 ">
+          <div
+            style={{ backgroundImage: `url(${m.image})` }}
+            className="bg-no-repeat bg-cover bg-center h-[32rem] w-[65rem] rounded-3xl">
+            <div className="bg-opacity-20 bg-black h-full w-full">
+              <p className="font-black text-5xl text-white pt-14 text-center px-44">{m.name}</p>
+              <ul className="">
+                <li>city:{m.city}</li>
+                <li>Duration(weeks):</li>
+                <li>Cost:</li>
+              </ul>
+              <button
+                className="text-white bg-slate-700 p-2 rounded-md"
+                type="button"
+                onClick={back}>
+                Reserve
+              </button>
+            </div>
           </div>
         </div>
       ))}
