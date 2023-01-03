@@ -43,7 +43,7 @@ function Tour() {
                   <img className="w-80 h-80 rounded-full" src={d.image} alt="asda" />
                 </div>
                 <div className="mt-3 text-center">
-                  <p className="text-xl font-bold">{d.cuty}</p>
+                  <p className="text-xl font-bold">{d.city}</p>
                   <p>{d.name}</p>
                 </div>
               </div>
