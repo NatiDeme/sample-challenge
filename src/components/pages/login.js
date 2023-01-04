@@ -22,6 +22,7 @@ export default function Login() {
   };
   useEffect(() => {
     const exist = Object.keys(user).length;
+    localStorage.setItem('token', user.token);
     if (exist > 0) {
       navigate('/');
     }

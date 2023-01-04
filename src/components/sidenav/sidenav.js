@@ -1,17 +1,21 @@
 import { NavLink } from 'react-router-dom';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './sidenav.css';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { signOut } from '../../redux/user/userAuth';
 
 function Nav() {
   const user = useSelector((store) => store.user);
-  let isLogged;
+  const dispatch = useDispatch();
   const [navbarOpen, setNavbarOpen] = useState(false);
   const handleToggle = () => {
     setNavbarOpen(!navbarOpen);
   };
   const close = () => {
     setNavbarOpen(false);
+  };
+  const signMeOut = () => {
+    dispatch(signOut());
   };
 
   const navItems = [
@@ -21,9 +25,7 @@ function Nav() {
     { link: '/create-tour', label: 'Create tour' },
     { link: '/delete-tour', label: 'Delete tour' }
   ];
-  useEffect(() => {
-    isLogged = Object.keys(user).length > 0;
-  });
+
   return (
     <>
       <button type="button" onClick={handleToggle} className="navbutton">
@@ -64,25 +66,27 @@ function Nav() {
             </li>
           </NavLink>
         ))}
-        <NavLink to="/login" onClick={close}>
-          <li>
-            <div className="flex justify-center mt-5">
-              {isLogged ? (
+
+        <li>
+          <div className="flex justify-center mt-5">
+            {Object.keys(user).length > 0 ? (
+              <button
+                type="button"
+                className="bg-slate-700 text-white p-2 rounded-lg hover:bg-slate-500 px-10"
+                onClick={signMeOut}>
+                Sign Out
+              </button>
+            ) : (
+              <NavLink to="/login">
                 <button
                   type="button"
                   className="bg-slate-700 text-white p-2 rounded-lg hover:bg-slate-500 px-10">
                   Sign In
                 </button>
-              ) : (
-                <button
-                  type="button"
-                  className="bg-slate-700 text-white p-2 rounded-lg hover:bg-slate-500 px-10">
-                  Sign Out
-                </button>
-              )}
-            </div>
-          </li>
-        </NavLink>
+              </NavLink>
+            )}
+          </div>
+        </li>
       </ul>
     </>
   );
