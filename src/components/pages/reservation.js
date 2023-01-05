@@ -8,7 +8,6 @@ function Reservation() {
         <p className="text-3xl font-black">You have not created any reservations yet</p>
         <p>Please select a Tour</p>
       </div>
-
       <div className="flex justify-center">
         <div className="flex flex-col mx-3 md:flex-row md:max-w-5xl rounded-lg bg-white shadow-lg h-[40rem] md:h-[20rem] lg:h-[15rem]">
           <img

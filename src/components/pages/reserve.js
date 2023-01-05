@@ -3,9 +3,29 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { CalendarPicker } from '@mui/x-date-pickers/CalendarPicker';
 import * as React from 'react';
 import dayjs from 'dayjs';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 export default function Reserve() {
-  const [date, setDate] = React.useState(dayjs('2022-12-12'));
+  const tours = useSelector((store) => store.tours);
+  const [date, setDate] = useState(dayjs('2023-01-01'));
+  const [value, setValue] = useState({
+    date: '',
+    tour_id: ''
+  });
+  const navigate = useNavigate();
+  const onChange = (e) => {
+    setValue({ ...value, [e.target.id]: e.target.value });
+  };
+  const sendMe = () => {
+    const token = localStorage.getItem('token');
+    if (token !== '') {
+      console.log(date.$);
+    } else {
+      navigate('/login');
+    }
+  };
   return (
     <div className="w-full h-screen">
       <div className="text-center bg-gray-50 text-gray-800 pb-10 py-14 px-4">
@@ -24,16 +44,23 @@ export default function Reserve() {
             <input
               type="text"
               className="w-full border border-gray-300 py-2 pl-3 rounded mt-2 outline-none focus:ring-indigo-600 :ring-indigo-600"
-              id="date"
+              id="name"
               placeholder="Name"
             />
-            <select className="bg-gray-100 border border-gray-300 text-gray-900 mb-6 text-sm rounded-lg focus:border-gray-300 block w-full p-2.5">
-              <option>Kenya</option>
-              <option>Ethipia</option>
+            <select
+              className="bg-gray-100 border border-gray-300 text-gray-900 mb-6 text-sm rounded-lg focus:border-gray-300 block w-full p-2.5"
+              id="tour_id"
+              onChange={onChange}>
+              {tours.map((m) => (
+                <option key={m.id} value={m.id}>
+                  {m.city}
+                </option>
+              ))}
             </select>
             <button
               type="button"
-              className="bg-slate-500 text-white p-3 rounded-lg hover:bg-gray-400 font-bold py-3 px-4">
+              className="bg-slate-500 text-white p-3 rounded-lg hover:bg-gray-400 font-bold py-3 px-4"
+              onClick={sendMe}>
               Reserve
             </button>
           </div>
