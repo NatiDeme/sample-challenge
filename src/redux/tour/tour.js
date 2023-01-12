@@ -5,7 +5,7 @@ export const tours = (payload) => ({
   type: GET_TOURS,
   payload
 });
-export const getTrous = () => async (dispatch) => {
+export const getTours = () => async (dispatch) => {
   const toursRes = await fetch('https://tour-booking.onrender.com/tours').then((data) => {
     return data.json();
   });

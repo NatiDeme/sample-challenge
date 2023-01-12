@@ -6,13 +6,13 @@ import 'swiper/css/pagination';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getTrous } from '../../redux/tour/tour';
+import { getTours } from '../../redux/tour/tour';
 
 function Tour() {
   const allTours = useSelector((store) => store.tours);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getTrous());
+    dispatch(getTours());
   }, []);
   return (
     <div className="w-full">

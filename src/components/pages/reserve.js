@@ -3,29 +3,42 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { CalendarPicker } from '@mui/x-date-pickers/CalendarPicker';
 import * as React from 'react';
 import dayjs from 'dayjs';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { addReservation } from '../../redux/reservations/reservation';
+import { getTours } from '../../redux/tour/tour';
 
 export default function Reserve() {
   const tours = useSelector((store) => store.tours);
   const [date, setDate] = useState(dayjs('2023-01-01'));
+  const finalDate = [];
   const [value, setValue] = useState({
     date: '',
     tour_id: ''
   });
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const onChange = (e) => {
     setValue({ ...value, [e.target.id]: e.target.value });
   };
   const sendMe = () => {
     const token = localStorage.getItem('token');
     if (token !== '') {
-      console.log(date.$);
+      finalDate.push(date.$D);
+      finalDate.push(date.$M);
+      finalDate.push(date.$y);
+      const me = finalDate.join('-');
+      value.date = me;
+      dispatch(addReservation(value, token));
     } else {
       navigate('/login');
     }
   };
+  useEffect(() => {
+    dispatch(getTours());
+  });
+
   return (
     <div className="w-full h-screen">
       <div className="text-center bg-gray-50 text-gray-800 pb-10 py-14 px-4">
