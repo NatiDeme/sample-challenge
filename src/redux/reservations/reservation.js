@@ -34,12 +34,13 @@ export const addReservation = (data, token) => async (dispatch) => {
   }
 };
 
-export const getRes = () => async (dispatch) => {
+export const getRes = (token) => async (dispatch) => {
   const result = await fetch(url, {
     method: 'GET',
-    headers: { 'Content-Type': 'application/json' }
+    headers: { 'Content-Type': 'application/json', Authorization: token }
   });
-  dispatch(reservations(result));
+  const final = await result.json();
+  dispatch(reservations(final));
 };
 
 const reservationsReducer = (state = allRes, action) => {

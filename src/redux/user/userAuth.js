@@ -47,9 +47,9 @@ export const removeUser = () => (dispatch) => {
 const userReducer = (state = user, action) => {
   switch (action.type) {
     case LOGIN_USER:
-      return action.payload;
+      return [action.payload];
     case SIGNUP_USER:
-      return action.payload;
+      return [action.payload];
     case SIGNOUT_USER:
       return [];
     default:

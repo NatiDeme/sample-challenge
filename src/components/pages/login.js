@@ -17,13 +17,14 @@ export default function Login() {
       [e.target.id]: e.target.value
     });
   };
-  const submitHandler = () => {
+  const submitHandler = (e) => {
+    e.preventDefault();
     dispatch(authUser(value));
   };
   useEffect(() => {
-    const exist = Object.keys(user).length;
-    localStorage.setItem('token', user.token);
+    const exist = user.length;
     if (exist > 0) {
+      localStorage.setItem('token', user[0].token);
       navigate('/');
     }
   }, [user]);

@@ -26,11 +26,12 @@ export default function Reserve() {
     const token = localStorage.getItem('token');
     if (token !== '') {
       finalDate.push(date.$D);
-      finalDate.push(date.$M);
+      finalDate.push(date.$M + 1);
       finalDate.push(date.$y);
       const me = finalDate.join('-');
       value.date = me;
       dispatch(addReservation(value, token));
+      navigate('/my-reservations');
     } else {
       navigate('/login');
     }
