@@ -1,4 +1,16 @@
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getTours } from '../../redux/tour/tour';
+
 export default function DeleteTour() {
+  const tours = useSelector((store) => store.tours);
+  const user = useSelector((store) => store.user);
+  const [myTours, setMyTours] = useState([]);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getTours());
+    setMyTours(tours.filter((m) => m.id === user[0].user.id));
+  }, []);
   return (
     <div className="w-full">
       <div className="text-center bg-gray-50 text-gray-800 pb-10 py-14">
@@ -8,54 +20,55 @@ export default function DeleteTour() {
         <p className="text-3xl font-black">You have not created any reservations yet</p>
         <p>Please select a Tour</p>
       </div>
-
-      <div className="flex justify-center">
-        <div className="flex flex-col mx-3 md:flex-row md:max-w-5xl rounded-lg bg-white shadow-lg h-[40rem] md:h-[20rem] lg:h-[15rem]">
-          <img
-            className=" w-full h-96 md:h-full object-cover md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg"
-            src="https://images.pexels.com/photos/158398/niagara-falls-waterfall-horseshoe-158398.jpeg?auto=compress&cs=tinysrgb&w=1600"
-            alt=""
-          />
-          <div className="p-6 flex flex-col justify-start">
-            <h5 className="text-gray-900 text-xl font-medium mb-2">Visit Nirobi</h5>
-            <p className="text-gray-700 text-base mb-4">
-              Nairobi is Kenya’s capital city. In addition to its urban core, the city has Nairobi
-              National Park, a large game reserve known for breeding endangered black rhinos and
-              home to giraffes, zebras and lions.
-            </p>
-            <p className="text-gray-600 text-xs">Reserved Date: Jan, 2022</p>
-            <button
-              type="submit"
-              className="w-52 bg-slate-500 text-white p-3 rounded-lg hover:bg-red-500 font-bold py-3 px-4 mt-2 uppercase">
-              Delete Tour
-            </button>
-          </div>
+      {myTours.length > 0 ? (
+        <div className="flex justify-center">
+          {myTours.map((a) => (
+            <div
+              key={a.id}
+              className="max-w-sm h-min bg-white border border-gray-200 rounded-lg shadow-md">
+              <a href=".">
+                <img
+                  className="rounded-t-lg"
+                  src="https://flowbite.com/docs/images/blog/image-1.jpg"
+                  alt=""
+                />
+              </a>
+              <div className="p-5">
+                <a href=".">
+                  <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">
+                    Noteworthy technology acquisitions 2021
+                  </h5>
+                </a>
+                <p className="mb-3 font-normal text-gray-700">
+                  Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse
+                  chronological order.
+                </p>
+                <a
+                  href="."
+                  className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
+                  Delete Event
+                  <svg
+                    aria-hidden="true"
+                    className="w-4 h-4 ml-2 -mr-1"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      fillRule="evenodd"
+                      d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          ))}
         </div>
-      </div>
-
-      <div className="flex justify-center my-8">
-        <div className="flex flex-col mx-3 md:flex-row md:max-w-5xl rounded-lg bg-white shadow-lg h-[40rem] md:h-[20rem] lg:h-[15rem]">
-          <img
-            className=" w-full h-96 md:h-full object-cover md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg"
-            src="https://images.pexels.com/photos/158398/niagara-falls-waterfall-horseshoe-158398.jpeg?auto=compress&cs=tinysrgb&w=1600"
-            alt=""
-          />
-          <div className="p-6 flex flex-col justify-start">
-            <h5 className="text-gray-900 text-xl font-medium mb-2">Visit Nirobi</h5>
-            <p className="text-gray-700 text-base mb-4">
-              Nairobi is Kenya’s capital city. In addition to its urban core, the city has Nairobi
-              National Park, a large game reserve known for breeding endangered black rhinos and
-              home to giraffes, zebras and lions.
-            </p>
-            <p className="text-gray-600 text-xs">Reserved Date: Jan, 2022</p>
-            <button
-              type="submit"
-              className="w-52 bg-slate-500 text-white p-3 rounded-lg hover:bg-red-500 font-bold py-3 px-4 mt-2 uppercase">
-              Delete Tour
-            </button>
-          </div>
+      ) : (
+        <div className="flex justify-center">
+          <span className="font-semibold text-xl">You haven not created tours yet</span>
         </div>
-      </div>
+      )}
     </div>
   );
 }
