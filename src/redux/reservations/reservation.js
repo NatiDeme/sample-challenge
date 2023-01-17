@@ -42,6 +42,16 @@ export const getRes = (token) => async (dispatch) => {
   const final = await result.json();
   dispatch(reservations(final));
 };
+export const removeRes = (token, id) => async (dispatch) => {
+  const remove = `https://tour-booking.onrender.com/user_reservations/${id}`;
+  const result = await fetch(remove, {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json', Authorization: token }
+  });
+  if (result.status === 200) {
+    dispatch(getRes());
+  }
+};
 
 const reservationsReducer = (state = allRes, action) => {
   switch (action.type) {

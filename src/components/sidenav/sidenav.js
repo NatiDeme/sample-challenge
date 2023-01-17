@@ -15,6 +15,7 @@ function Nav() {
     setNavbarOpen(false);
   };
   const signMeOut = () => {
+    localStorage.removeItem('token');
     dispatch(signOut());
   };
 
