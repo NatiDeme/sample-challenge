@@ -28,7 +28,7 @@ function Nav() {
   ];
 
   return (
-    <>
+    <aside className="flex justify-center shrink-0 border-r w-72">
       <button type="button" onClick={handleToggle} className="navbutton">
         {navbarOpen ? (
           <svg
@@ -59,7 +59,7 @@ function Nav() {
       <ul
         className={`menuNav ${
           navbarOpen ? ' showMenu' : ''
-        } md:flex flex-col gap-3 pt-16 text-xl font-bold tracking-wide p-10`}>
+        } md:flex flex-col gap-3 pt-16 text-xl font-bold tracking-wide py-10 w-full ml-4`}>
         {navItems.map((element) => (
           <NavLink
             key={element.link}
@@ -93,7 +93,7 @@ function Nav() {
           </div>
         </li>
       </ul>
-    </>
+    </aside>
   );
 }
 

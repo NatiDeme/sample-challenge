@@ -29,7 +29,7 @@ export default function Login() {
     }
   }, [user]);
   return (
-    <div className="flex justify-center  lg:justify-between">
+    <div className="flex justify-center  w-full lg:justify-between">
       <div>
         <Link to="/">
           <p className="text-black text-lg font-black mt-10 ml-5">LOGO</p>

@@ -15,7 +15,7 @@ function Tour() {
     dispatch(getTours());
   }, []);
   return (
-    <div className="w-full">
+    <div className="flex flex-col w-full">
       <div className="text-center mt-5">
         <p className="text-3xl font-black"> Reserve your Tour</p>
       </div>

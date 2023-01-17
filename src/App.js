@@ -12,24 +12,18 @@ import TourDetail from './components/pages/tour_detail';
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/login" element={<Login />} />
-      </Routes>
-      <div className="flex h-screen">
-        <div className=" border-x-2 drop-shadow-sm z-40 bg-white md:w-96">
-          <Nav />
-        </div>
-        <div className="bg-[#f9fafb] w-full">
-          <Routes>
-            <Route path="/" element={<Tour />} />
-            <Route path="/my-reservations" element={<Reservation />} />
-            <Route path="/reserve" element={<Reserve />} />
-            <Route path="/create-tour" element={<CreateTour />} />
-            <Route path="/delete-tour" element={<DeleteTour />} />
-            <Route path="/detail" element={<TourDetail />} />
-          </Routes>
-        </div>
+      <div className="flex min-h-screen">
+        <Nav />
+        <Routes>
+          <Route path="/" element={<Tour />} />
+          <Route path="/my-reservations" element={<Reservation />} />
+          <Route path="/reserve" element={<Reserve />} />
+          <Route path="/create-tour" element={<CreateTour />} />
+          <Route path="/delete-tour" element={<DeleteTour />} />
+          <Route path="/detail" element={<TourDetail />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
       </div>
     </Router>
   );

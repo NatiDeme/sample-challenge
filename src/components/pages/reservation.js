@@ -22,7 +22,7 @@ function Reservation() {
     dispatch(removeRes(token, e.target.id));
   };
   return (
-    <div className="h-full lg:h-screen">
+    <div className="w-full">
       <div className="text-center bg-gray-50 text-gray-800 py-10 px-4">
         <h1 className="text-5xl font-bold mt-0 underline underline-offset-2">Your Tours</h1>
       </div>
@@ -30,11 +30,11 @@ function Reservation() {
         <p className="text-3xl font-black">You have not created any reservations yet</p>
         <p>Please select a Tour</p>
       </div>
-      <div className="flex flex-col items-center gap-4">
+      <div className="flex flex-col px-56 py-10 items-center gap-4">
         {reservations.map((m) => (
           <div
             key={m.id}
-            className="flex flex-col mx-3 md:flex-row md:max-w-5xl rounded-lg bg-white shadow-lg h-[40rem] md:h-[20rem] lg:h-[15rem]">
+            className="flex flex-col  mx-3 md:flex-row w-full rounded-lg bg-white shadow-lg h-[40rem] md:h-[20rem] lg:h-[15rem]">
             <img
               className=" w-full h-96 md:h-full object-cover md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg"
               src={m.tour.image}
