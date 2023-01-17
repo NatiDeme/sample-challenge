@@ -30,7 +30,7 @@ function Reservation() {
         <p className="text-3xl font-black">You have not created any reservations yet</p>
         <p>Please select a Tour</p>
       </div>
-      <div className="flex justify-center mt-4">
+      <div className="flex flex-col items-center gap-4">
         {reservations.map((m) => (
           <div
             key={m.id}

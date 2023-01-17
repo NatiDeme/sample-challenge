@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getTours } from '../../redux/tour/tour';
+import { getTours, removeTour } from '../../redux/tour/tour';
 
 export default function DeleteTour() {
   const tours = useSelector((store) => store.tours);
@@ -8,13 +8,15 @@ export default function DeleteTour() {
   const [myTours, setMyTours] = useState([]);
   const dispatch = useDispatch();
   const clickHandler = (e) => {
-    console.log(e.target.id);
+    e.preventDefault();
+    const token = localStorage.getItem('token');
+    dispatch(removeTour(token, e.target.id));
   };
   useEffect(() => {
     dispatch(getTours());
     const m = tours.filter((m) => m.user_id === user[0].user.user_id);
     setMyTours(m);
-  }, []);
+  }, [tours]);
   return (
     <div className="w-full">
       <div className="text-center bg-gray-50 text-gray-800 pb-10 py-14">

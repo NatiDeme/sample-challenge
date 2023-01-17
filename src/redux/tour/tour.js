@@ -26,6 +26,16 @@ export const getTours = () => async (dispatch) => {
   });
   dispatch(tours(toursRes));
 };
+export const removeTour = (token, id) => async (dispatch) => {
+  // const remove = `https://tour-booking.onrender.com/tours/${id}`;
+  const result = await fetch(`https://tour-booking.onrender.com/tours/${id}`, {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json', Authorization: token }
+  });
+  if (result.status === 200) {
+    dispatch(getTours());
+  }
+};
 
 const tourReducer = (state = allTours, action) => {
   switch (action.type) {
