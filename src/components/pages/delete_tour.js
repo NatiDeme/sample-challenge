@@ -7,9 +7,13 @@ export default function DeleteTour() {
   const user = useSelector((store) => store.user);
   const [myTours, setMyTours] = useState([]);
   const dispatch = useDispatch();
+  const clickHandler = (e) => {
+    console.log(e.target.id);
+  };
   useEffect(() => {
     dispatch(getTours());
-    setMyTours(tours.filter((m) => m.id === user[0].user.id));
+    const m = tours.filter((m) => m.user_id === user[0].user.user_id);
+    setMyTours(m);
   }, []);
   return (
     <div className="w-full">
@@ -21,30 +25,23 @@ export default function DeleteTour() {
         <p>Please select a Tour</p>
       </div>
       {myTours.length > 0 ? (
-        <div className="flex justify-center">
+        <div className="flex justify-center gap-4">
           {myTours.map((a) => (
             <div
               key={a.id}
               className="max-w-sm h-min bg-white border border-gray-200 rounded-lg shadow-md">
               <a href=".">
-                <img
-                  className="rounded-t-lg"
-                  src="https://flowbite.com/docs/images/blog/image-1.jpg"
-                  alt=""
-                />
+                <img className="rounded-t-lg" src={a.image} alt="" />
               </a>
               <div className="p-5">
                 <a href=".">
-                  <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">
-                    Noteworthy technology acquisitions 2021
-                  </h5>
+                  <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">{a.name}</h5>
                 </a>
-                <p className="mb-3 font-normal text-gray-700">
-                  Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse
-                  chronological order.
-                </p>
-                <a
-                  href="."
+                <p className="mb-3 font-normal text-gray-700">{a.description}</p>
+                <button
+                  type="button"
+                  onClick={clickHandler}
+                  id={a.id}
                   className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
                   Delete Event
                   <svg
@@ -59,7 +56,7 @@ export default function DeleteTour() {
                       clipRule="evenodd"
                     />
                   </svg>
-                </a>
+                </button>
               </div>
             </div>
           ))}
