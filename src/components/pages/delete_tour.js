@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { getTours, removeTour } from '../../redux/tour/tour';
 
 export default function DeleteTour() {
   const tours = useSelector((store) => store.tours);
   const user = useSelector((store) => store.user);
+  const navigate = useNavigate();
   const [myTours, setMyTours] = useState([]);
   const dispatch = useDispatch();
   const clickHandler = (e) => {
@@ -13,13 +15,17 @@ export default function DeleteTour() {
     dispatch(removeTour(token, e.target.id));
   };
   useEffect(() => {
-    dispatch(getTours());
-    const m = tours.filter((m) => m.user_id === user[0].user.user_id);
-    setMyTours(m);
+    if (user.length > 0) {
+      dispatch(getTours());
+      const m = tours.filter((m) => m.user_id === user[0].user.user_id);
+      setMyTours(m);
+    } else {
+      navigate('/login');
+    }
   }, [tours]);
   return (
     <div className="w-full">
-      <div className="text-center bg-gray-50 text-gray-800 pb-10 py-14">
+      <div className="text-center bg-white text-gray-800 pb-10 py-14">
         <h1 className="text-5xl font-bold underline underline-offset-2">Your Tour</h1>
       </div>
       <div className=" flex-col items-center pt-5 hidden">

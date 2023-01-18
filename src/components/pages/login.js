@@ -29,7 +29,7 @@ export default function Login() {
     }
   }, [user]);
   return (
-    <div className="flex justify-center  w-full lg:justify-between">
+    <div className="flex justify-center w-full lg:justify-between">
       <div>
         <Link to="/">
           <p className="text-black text-lg font-black mt-10 ml-5">LOGO</p>
@@ -46,7 +46,7 @@ export default function Login() {
                 className="border-b-2 placeholder:text-black placeholder:p-1 border-gray-400 w-64 focus:outline-0"
               />
               <input
-                type="text"
+                type="password"
                 placeholder="Password"
                 id="password"
                 onChange={updateValue}

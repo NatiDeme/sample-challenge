@@ -1,11 +1,12 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addTour } from '../../redux/tour/tour';
 
 export default function CreateTour() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const user = useSelector((store) => store.user);
   const [value, setValue] = useState({
     name: '',
     image: '',
@@ -20,13 +21,17 @@ export default function CreateTour() {
     });
   };
   const submitHandler = () => {
-    const token = localStorage.getItem('token');
-    dispatch(addTour(value, token));
-    navigate('/');
+    if (user.length > 0) {
+      const token = localStorage.getItem('token');
+      dispatch(addTour(value, token));
+      navigate('/');
+    } else {
+      navigate('/login');
+    }
   };
   return (
     <div className="w-full">
-      <div className="text-center bg-gray-50 text-gray-800 pb-10 py-14">
+      <div className="text-center bg-white text-gray-800 pb-10 py-14">
         <h1 className="text-5xl font-bold underline underline-offset-2">Create New Tour</h1>
       </div>
       <div className="mt-6 w-full flex justify-center">

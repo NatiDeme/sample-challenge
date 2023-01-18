@@ -11,6 +11,7 @@ import { getTours } from '../../redux/tour/tour';
 
 export default function Reserve() {
   const tours = useSelector((store) => store.tours);
+  const user = useSelector((store) => store.user);
   const [date, setDate] = useState(dayjs('2023-01-01'));
   const finalDate = [];
   const [value, setValue] = useState({
@@ -24,7 +25,7 @@ export default function Reserve() {
   };
   const sendMe = () => {
     const token = localStorage.getItem('token');
-    if (token !== '') {
+    if (user.length > 0) {
       finalDate.push(date.$D);
       finalDate.push(date.$M + 1);
       finalDate.push(date.$y);
@@ -42,7 +43,7 @@ export default function Reserve() {
 
   return (
     <div className="w-full h-screen">
-      <div className="text-center bg-gray-50 text-gray-800 pb-10 py-14 px-4">
+      <div className="text-center bg-white text-gray-800 pb-10 py-14 px-4">
         <h1 className="text-5xl font-bold mt-0 mb-6 underline underline-offset-2">
           Reserve your tour
         </h1>

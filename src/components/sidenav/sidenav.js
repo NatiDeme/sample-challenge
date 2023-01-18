@@ -60,20 +60,8 @@ function Nav() {
         className={`menuNav ${
           navbarOpen ? ' showMenu' : ''
         } md:flex flex-col gap-3 pt-16 text-xl font-bold tracking-wide py-10 w-full ml-4`}>
-        {navItems.map((element) => (
-          <NavLink
-            key={element.link}
-            to={element.link}
-            className={({ isActive }) => (isActive ? 'bg-gray-200 rounded font-bold' : 'rounded')}
-            onClick={close}>
-            <li className="flex items-center pl-3 text-lg py-4 h-12 text-gray-700 rounded hover:text-gray-900 hover:bg-gray-300 transition duration-300 ease-in-out uppercase">
-              {element.label}
-            </li>
-          </NavLink>
-        ))}
-
         <li>
-          <div className="flex justify-center mt-5">
+          <div className="flex justify-center">
             {Object.keys(user).length > 0 ? (
               <button
                 type="button"
@@ -92,6 +80,17 @@ function Nav() {
             )}
           </div>
         </li>
+        {navItems.map((element) => (
+          <NavLink
+            key={element.link}
+            to={element.link}
+            className={({ isActive }) => (isActive ? 'bg-gray-200 rounded font-bold' : 'rounded')}
+            onClick={close}>
+            <li className="flex items-center pl-3 text-lg py-4 h-12 text-gray-700 rounded hover:text-gray-900 hover:bg-gray-300 transition duration-300 ease-in-out uppercase">
+              {element.label}
+            </li>
+          </NavLink>
+        ))}
       </ul>
     </aside>
   );

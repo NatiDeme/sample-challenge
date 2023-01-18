@@ -23,7 +23,7 @@ function Reservation() {
   };
   return (
     <div className="w-full">
-      <div className="text-center bg-gray-50 text-gray-800 py-10 px-4">
+      <div className="text-center bg-white text-gray-800 py-10 px-4">
         <h1 className="text-5xl font-bold mt-0 underline underline-offset-2">Your Tours</h1>
       </div>
       <div className=" flex-col items-center hidden">
