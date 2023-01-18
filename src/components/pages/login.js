@@ -1,29 +1,67 @@
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { authUser } from '../../redux/user/userAuth';
 
 export default function Login() {
+  const user = useSelector((store) => store.user);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [value, setValue] = useState({
+    email: '',
+    password: ''
+  });
+  const updateValue = (e) => {
+    setValue({
+      ...value,
+      [e.target.id]: e.target.value
+    });
+  };
+  const submitHandler = (e) => {
+    e.preventDefault();
+    dispatch(authUser(value));
+  };
+  useEffect(() => {
+    const exist = user.length;
+    if (exist > 0) {
+      localStorage.setItem('token', user[0].token);
+      navigate('/');
+    }
+  }, [user]);
   return (
-    <div className="flex justify-center  lg:justify-between">
+    <div className="flex justify-center w-full lg:justify-between">
       <div>
-        <p className="text-black text-lg font-black mt-10 ml-5">LOGO</p>
+        <Link to="/">
+          <p className="text-black text-lg font-black mt-10 ml-5">LOGO</p>
+        </Link>
         <div>
           <div className="flex flex-col gap-10 mt-20 lg:ml-20">
             <h2 className="text-2xl font-black">Sign in to your account</h2>
             <form className="flex flex-col gap-5">
               <input
                 type="email"
+                id="email"
                 placeholder="Email"
+                onChange={updateValue}
                 className="border-b-2 placeholder:text-black placeholder:p-1 border-gray-400 w-64 focus:outline-0"
               />
               <input
-                type="text"
+                type="password"
                 placeholder="Password"
+                id="password"
+                onChange={updateValue}
                 className="border-b-2 placeholder:text-black placeholder:p-1 border-gray-400 w-64 focus:outline-0"
               />
+              {/* <input
+                type="submit"
+                className="bg-black text-white w-64 p-2 rounded-xl hover:bg-white hover:border-2 hover:text-black hover:border-black"
+                value="Sign in"
+              /> */}
               <button
                 type="button"
+                onClick={submitHandler}
                 className="bg-black text-white w-64 p-2 rounded-xl hover:bg-white hover:border-2 hover:text-black hover:border-black">
-                {' '}
-                Sign in
+                signin
               </button>
             </form>
             <div className="flex gap-2 lg:hidden">

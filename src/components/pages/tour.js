@@ -3,48 +3,19 @@ import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { getTours } from '../../redux/tour/tour';
 
-const tours = [
-  {
-    id: 0,
-    img: 'https://images.pexels.com/photos/158398/niagara-falls-waterfall-horseshoe-158398.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    title: 'Visit Nirobi',
-    desc: 'asdasadasdasdadasdadas'
-  },
-  {
-    id: 1,
-    img: 'https://images.pexels.com/photos/158398/niagara-falls-waterfall-horseshoe-158398.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    title: 'Visit Ethiopia',
-    desc: 'The capital of Africa'
-  },
-  {
-    id: 2,
-    img: 'https://images.pexels.com/photos/2901215/pexels-photo-2901215.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    title: 'Visit Rwanda',
-    desc: 'Amazing place in the horn of africa'
-  },
-  {
-    id: 3,
-    img: 'https://images.pexels.com/photos/2387873/pexels-photo-2387873.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    title: 'Visit Uganda',
-    desc: 'Whou would hate to visit Lake Victoria'
-  },
-  {
-    id: 4,
-    img: 'https://images.pexels.com/photos/2356045/pexels-photo-2356045.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    title: 'Visit Egypt',
-    desc: 'Whou would hate to visit Lake Victoria'
-  },
-  {
-    id: 5,
-    img: 'https://images.pexels.com/photos/3155666/pexels-photo-3155666.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    title: 'Visit Ertirea',
-    desc: 'Whou would hate to visit Lake Victoria'
-  }
-];
 function Tour() {
+  const allTours = useSelector((store) => store.tours);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getTours());
+  }, []);
   return (
-    <div className="w-full">
+    <div className="flex flex-col w-full">
       <div className="text-center mt-5">
         <p className="text-3xl font-black"> Reserve your Tour</p>
       </div>
@@ -66,17 +37,18 @@ function Tour() {
               slidesPerView: 2
             }
           }}>
-          {tours.map((d) => (
+          {allTours.map((d) => (
             <SwiperSlide key={d.id}>
-              <div>
+              <Link to="/detail" state={d.id}>
                 <div className="flex justify-center ">
-                  <img className="w-80 h-80 rounded-full" src={d.img} alt="asda" />
+                  <img className="w-80 h-80 rounded-full" src={d.image} alt="asda" />
                 </div>
                 <div className="mt-3 text-center">
-                  <p className="text-xl font-bold">{d.title}</p>
-                  <p>{d.desc}</p>
+                  <p className="text-xl font-bold">{d.city}</p>
+                  <p className="px-40">{d.description.substring(0, 100)}</p>
+                  <p>{d.name}</p>
                 </div>
-              </div>
+              </Link>
             </SwiperSlide>
           ))}
         </Swiper>
