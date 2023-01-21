@@ -10,15 +10,6 @@
 ## LINK TO THE BACKEND REPO
 [TOURIFY-BACKEND](https://github.com/NatiDeme/tour-booking-backend)
 
-## Live Demo
-[Link Live Demo](https://book-tours.netlify.app/)
-
-## Kanban Board
-
- 1- [Link to Kanban Board.](https://github.com/NatiDeme/tour-booking-backend/projects/1)
- 
- <img src="https://user-images.githubusercontent.com/94223367/199873332-fd843701-2b60-4d6b-ab91-4ae8d036e17d.png" style="width: 70%;margin-top: 5rem;" alt="Kanban Board" />
-
 ## Built With
 
 - HTML
