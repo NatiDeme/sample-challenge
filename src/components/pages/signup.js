@@ -8,10 +8,10 @@ export default function Signup() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [value, setValue] = useState({
-    email: '',
     name: '',
+    password: '',
     username: '',
-    password: ''
+    email: ''
   });
   const updateValue = (e) => {
     setValue({
@@ -20,7 +20,11 @@ export default function Signup() {
     });
   };
   const submitHandler = () => {
-    dispatch(signUpUser(value));
+    dispatch(signUpUser(value)).then((res) => {
+      if (res) {
+        navigate('/login');
+      }
+    });
   };
   useEffect(() => {
     const exist = Object.keys(user).length;
@@ -60,7 +64,7 @@ export default function Signup() {
                 className="border-b-2 placeholder:text-black placeholder:p-1 border-gray-400 w-64 focus:outline-0"
               />
               <input
-                type="text"
+                type="password"
                 placeholder="Password"
                 id="password"
                 onChange={updateValue}

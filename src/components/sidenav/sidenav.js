@@ -15,6 +15,7 @@ function Nav() {
     setNavbarOpen(false);
   };
   const signMeOut = () => {
+    localStorage.removeItem('user');
     localStorage.removeItem('token');
     dispatch(signOut());
   };
@@ -61,16 +62,24 @@ function Nav() {
           navbarOpen ? ' showMenu' : ''
         } md:flex flex-col gap-3 pt-16 text-xl font-bold tracking-wide py-10 w-full ml-4`}>
         <li>
-          <div className="flex justify-center">
+          <div className="mb-5">
             {Object.keys(user).length > 0 ? (
-              <button
-                type="button"
-                className="bg-slate-700 text-white p-2 rounded-lg hover:bg-slate-500 px-10"
-                onClick={signMeOut}>
-                Sign Out
-              </button>
+              <div className="flex gap-5 items-center">
+                <p className="bg-slate-700 text-2xl text-white w-14 h-14 flex items-center justify-center rounded-full">
+                  {user[0].user.name[0].toUpperCase()}
+                </p>
+                <div className="flex flex-col">
+                  <p>{user[0].user.name}</p>
+                  <button
+                    type="button"
+                    className="rounded-lg text-sm underline text-gray-400 hover:text-black"
+                    onClick={signMeOut}>
+                    Sign Out
+                  </button>
+                </div>
+              </div>
             ) : (
-              <NavLink to="/login">
+              <NavLink to="/login" className="flex justify-center">
                 <button
                   type="button"
                   className="bg-slate-700 text-white p-2 rounded-lg hover:bg-slate-500 px-10">
