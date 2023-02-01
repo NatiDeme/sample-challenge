@@ -28,16 +28,18 @@ export const authUser = (data) => async (dispatch) => {
   }
 };
 
-export const signUpUser = (data) => async (dispatch) => {
+export const signUpUser = (data) => async () => {
   const res = await fetch(SIGNUP, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data)
   });
-  if (res.status === 200) {
+  if (res.status === 201) {
     const final = await res.json();
-    dispatch(signUp(final));
+    alert(`${final.name} Thank you for joining please login with`);
+    return true;
   }
+  return false;
 };
 
 export const removeUser = () => (dispatch) => {
