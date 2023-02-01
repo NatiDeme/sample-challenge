@@ -3,7 +3,8 @@ const LOGIN = 'https://tour-booking.onrender.com/login';
 const SIGNUP = 'https://tour-booking.onrender.com/signup';
 const SIGNUP_USER = 'SIGNUP_USER';
 const SIGNOUT_USER = 'SIGNOUT_USER';
-const user = [];
+
+const user = JSON.parse(localStorage.getItem('user')) || [];
 export const logInUser = (payload) => ({
   type: LOGIN_USER,
   payload
@@ -40,7 +41,6 @@ export const signUpUser = (data) => async (dispatch) => {
 };
 
 export const removeUser = () => (dispatch) => {
-  localStorage.removeItem('token');
   dispatch(signOut());
 };
 

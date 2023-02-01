@@ -15,6 +15,7 @@ function Nav() {
     setNavbarOpen(false);
   };
   const signMeOut = () => {
+    localStorage.removeItem('user');
     localStorage.removeItem('token');
     dispatch(signOut());
   };
@@ -63,8 +64,8 @@ function Nav() {
         <li>
           <div className="mb-5">
             {Object.keys(user).length > 0 ? (
-              <div className="flex gap-5">
-                <p className="bg-slate-700 text-2xl text-white w-10 h-10 flex items-center justify-center p-3 rounded-full">
+              <div className="flex gap-5 items-center">
+                <p className="bg-slate-700 text-2xl text-white w-14 h-14 flex items-center justify-center rounded-full">
                   {user[0].user.name[0].toUpperCase()}
                 </p>
                 <div className="flex flex-col">

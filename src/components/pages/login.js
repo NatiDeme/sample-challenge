@@ -25,6 +25,7 @@ export default function Login() {
     const exist = user.length;
     if (exist > 0) {
       localStorage.setItem('token', user[0].token);
+      localStorage.setItem('user', JSON.stringify(user));
       navigate('/');
     }
   }, [user]);
